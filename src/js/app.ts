@@ -159,3 +159,41 @@ allSections.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+/// //////////////////////////////////////
+// Lazy Loading Images
+/// //////////////////////////////////////
+const allImages = document.querySelectorAll('img[data-src]');
+
+const loadImages = (
+  entries: IntersectionObserverEntry[],
+  observer: IntersectionObserver,
+) => {
+  const [entry] = entries;
+
+  // You need to explicitly tell TypeScript
+  // the type of the HTMLElement which is your target.
+  // Alternatively you can do it inline like so:
+  // (entry.target as HTMLImageElement).src
+  // But to avoid this repetition every time
+  // is best to store it in a variable
+  const target = entry.target as HTMLImageElement;
+
+  if (!entry.isIntersecting) return;
+
+  // Replace src with data-src
+  target.src = target.dataset.src;
+  target.addEventListener('load', () => {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+const imagesObserver = new IntersectionObserver(loadImages, {
+  root: null as Element,
+  threshold: 0.5,
+});
+
+allImages.forEach(image => {
+  imagesObserver.observe(image);
+});
