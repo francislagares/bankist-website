@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /// ////////////////////////////////////
 // Modal window
 /// ////////////////////////////////////
@@ -157,7 +158,7 @@ const sectionObserver = new IntersectionObserver(sectionReveal, {
 
 allSections.forEach(section => {
   sectionObserver.observe(section);
-  section.classList.add('section--hidden');
+  // section.classList.add('section--hidden');
 });
 
 /// //////////////////////////////////////
@@ -184,7 +185,7 @@ const loadImages = (
   // Replace src with data-src
   target.src = target.dataset.src;
   target.addEventListener('load', () => {
-    entry.target.classList.remove('lazy-img');
+    target.classList.remove('lazy-img');
   });
 
   observer.unobserve(entry.target);
@@ -197,3 +198,96 @@ const imagesObserver = new IntersectionObserver(loadImages, {
 allImages.forEach(image => {
   imagesObserver.observe(image);
 });
+
+/// //////////////////////////////////////
+// Slider
+/// //////////////////////////////////////
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  // Functions
+  const createDots = function () {
+    slides.forEach((_, i) => {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`,
+      );
+    });
+  };
+
+  const activateDot = function (slide: number) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide: number) {
+    slides.forEach(
+      // eslint-disable-next-line no-return-assign
+      (s: HTMLDivElement, i: number) =>
+        // eslint-disable-next-line no-param-reassign
+        (s.style.transform = `translateX(${100 * (i - slide)}%)`),
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    goToSlide(0);
+    createDots();
+
+    activateDot(0);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'ArrowLeft') prevSlide();
+    // eslint-disable-next-line no-unused-expressions
+    e.key === 'ArrowRight' && nextSlide();
+  });
+
+  dotContainer.addEventListener('click', (e: Event) => {
+    const target = e.target as HTMLDivElement;
+
+    if (target.classList.contains('dots__dot')) {
+      const { slide } = target.dataset;
+      goToSlide(+slide);
+      activateDot(+slide);
+    }
+  });
+};
+slider();
