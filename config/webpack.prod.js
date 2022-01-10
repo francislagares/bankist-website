@@ -22,9 +22,16 @@ module.exports = merge(common, {
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               importLoaders: 2,
-              sourceMap: false,
-              modules: true,
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportGlobals: true,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                namedExport: true,
+                exportOnlyLocals: false,
+              },
             },
           },
           'postcss-loader',

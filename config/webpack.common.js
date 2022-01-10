@@ -50,6 +50,27 @@ module.exports = {
         use: [
           {
             loader: 'html-loader',
+            options: {
+              sources: {
+                list: [
+                  {
+                    tag: 'img',
+                    attribute: 'src',
+                    type: 'src',
+                  },
+                  {
+                    tag: 'img',
+                    attribute: 'data-src',
+                    type: 'src',
+                  },
+                  {
+                    tag: 'use',
+                    attribute: 'xlink:href',
+                    type: 'src',
+                  },
+                ],
+              },
+            },
           },
         ],
       },
