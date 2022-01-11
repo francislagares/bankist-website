@@ -216,13 +216,18 @@ const slider = function () {
 
   let curSlide = 0;
   const maxSlide = slides.length;
+  let isDragging = false;
+  let currentPosition: number;
+  let newPosition: number;
 
   // Functions
   const createDots = function () {
     slides.forEach((_, i) => {
       dotContainer.insertAdjacentHTML(
         'beforeend',
-        `<button class="dots__dot" data-slide="${i}"></button>`,
+        `<button class="dots__dot" data-slide="${i}">
+          <span class="scr-reader">Dots to scroll testimonials</span>
+        </button>`,
       );
     });
   };
@@ -268,6 +273,32 @@ const slider = function () {
     activateDot(curSlide);
   };
 
+  const getPositionX = (event: TouchEvent) =>
+    // @ts-ignore
+    event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+
+  // eslint-disable-next-line no-unused-vars
+  const touchStart = function (i: number) {
+    return function (event: TouchEvent) {
+      isDragging = true;
+
+      currentPosition = getPositionX(event);
+    };
+  };
+
+  const touchMove = function (event: TouchEvent) {
+    if (isDragging) {
+      newPosition = getPositionX(event);
+    }
+  };
+
+  const touchEnd = function () {
+    isDragging = false;
+
+    // eslint-disable-next-line no-unused-expressions
+    currentPosition > newPosition ? nextSlide() : prevSlide();
+  };
+
   const init = function () {
     goToSlide(0);
     createDots();
@@ -294,6 +325,12 @@ const slider = function () {
       goToSlide(+slide);
       activateDot(+slide);
     }
+  });
+
+  document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.addEventListener('touchstart', touchStart(index), { passive: true });
+    slide.addEventListener('touchend', touchEnd, { passive: true });
+    slide.addEventListener('touchmove', touchMove, { passive: true });
   });
 };
 slider();
