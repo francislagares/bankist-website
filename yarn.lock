@@ -3085,6 +3085,60 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bankist-website@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "bankist-website@workspace:."
+  dependencies:
+    "@babel/core": ^7.16.7
+    "@babel/plugin-proposal-class-properties": ^7.16.7
+    "@babel/preset-env": ^7.16.7
+    "@commitlint/cli": ^16.0.2
+    "@commitlint/config-conventional": ^16.0.0
+    "@types/express": ^4.17.13
+    "@typescript-eslint/eslint-plugin": ^5.9.0
+    "@typescript-eslint/parser": ^5.9.0
+    babel-loader: ^8.2.3
+    clean-webpack-plugin: ^4.0.0
+    commitizen: ^4.2.4
+    copy-webpack-plugin: ^10.2.0
+    cross-env: ^7.0.3
+    css-loader: ^6.5.1
+    css-minimizer-webpack-plugin: ^3.3.1
+    cz-conventional-changelog: ^3.3.0
+    eslint: ^8.6.0
+    eslint-config-airbnb-base: ^15.0.0
+    eslint-config-prettier: ^8.3.0
+    eslint-import-resolver-webpack: ^0.13.2
+    eslint-plugin-import: ^2.25.4
+    eslint-plugin-prettier: ^4.0.0
+    express: ^4.17.2
+    html-loader: ^3.1.0
+    html-webpack-plugin: ^5.5.0
+    husky: ^7.0.4
+    lint-staged: ^12.1.7
+    mini-css-extract-plugin: ^2.4.6
+    node-sass: ^7.0.1
+    postcss-loader: ^6.2.1
+    postcss-preset-env: ^7.2.0
+    prettier: ^2.5.1
+    prettier-stylelint: ^0.4.2
+    sass-loader: ^12.4.0
+    style-loader: ^3.3.1
+    stylelint: ^14.2.0
+    stylelint-a11y: ^1.2.3
+    stylelint-config-recommended-scss: ^5.0.2
+    stylelint-config-standard: ^24.0.0
+    stylelint-order: ^5.0.0
+    stylelint-scss: ^4.1.0
+    ts-loader: ^9.2.6
+    typescript: ^4.5.4
+    webpack: ^5.65.0
+    webpack-cli: ^4.9.1
+    webpack-dev-server: ^4.7.2
+    webpack-merge: ^5.8.0
+  languageName: unknown
+  linkType: soft
+
 "batch@npm:0.6.1":
   version: 0.6.1
   resolution: "batch@npm:0.6.1"
@@ -13068,11 +13122,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.5.4#~builtin<compat/typescript>":
   version: 4.5.4
-  resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=ddd1e8"
+  resolution: "typescript@patch:typescript@npm%3A4.5.4#~builtin<compat/typescript>::version=4.5.4&hash=493e53"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 270255355c3236076dbbd0900ff0b7b159fac7e6a95f9ed8c59f57361c7dace9f1fbffd3b5eb21377c7f636027382ad89eb64b2acfbcd9e08574f04cfc75ca3d
+  checksum: 2e488dde7d2c4a2fa2e79cf2470600f8ce81bc0563c276b72df8ff412d74456ae532ba824650ae936ce207440c79720ddcfaa25e3cb4477572b8534fa4e34d49
   languageName: node
   linkType: hard
 
@@ -13416,60 +13470,6 @@ __metadata:
   checksum: 2abc306c96930b757972a1c4650eb6b25b5d99f24088714957f88629e137db569368c5de0e57986c89ea70db2f1df9bba11a87cb6d0c8694b6f53a0159fab3bf
   languageName: node
   linkType: hard
-
-"webpack-boilerplate@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "webpack-boilerplate@workspace:."
-  dependencies:
-    "@babel/core": ^7.16.7
-    "@babel/plugin-proposal-class-properties": ^7.16.7
-    "@babel/preset-env": ^7.16.7
-    "@commitlint/cli": ^16.0.2
-    "@commitlint/config-conventional": ^16.0.0
-    "@types/express": ^4.17.13
-    "@typescript-eslint/eslint-plugin": ^5.9.0
-    "@typescript-eslint/parser": ^5.9.0
-    babel-loader: ^8.2.3
-    clean-webpack-plugin: ^4.0.0
-    commitizen: ^4.2.4
-    copy-webpack-plugin: ^10.2.0
-    cross-env: ^7.0.3
-    css-loader: ^6.5.1
-    css-minimizer-webpack-plugin: ^3.3.1
-    cz-conventional-changelog: ^3.3.0
-    eslint: ^8.6.0
-    eslint-config-airbnb-base: ^15.0.0
-    eslint-config-prettier: ^8.3.0
-    eslint-import-resolver-webpack: ^0.13.2
-    eslint-plugin-import: ^2.25.4
-    eslint-plugin-prettier: ^4.0.0
-    express: ^4.17.2
-    html-loader: ^3.1.0
-    html-webpack-plugin: ^5.5.0
-    husky: ^7.0.4
-    lint-staged: ^12.1.7
-    mini-css-extract-plugin: ^2.4.6
-    node-sass: ^7.0.1
-    postcss-loader: ^6.2.1
-    postcss-preset-env: ^7.2.0
-    prettier: ^2.5.1
-    prettier-stylelint: ^0.4.2
-    sass-loader: ^12.4.0
-    style-loader: ^3.3.1
-    stylelint: ^14.2.0
-    stylelint-a11y: ^1.2.3
-    stylelint-config-recommended-scss: ^5.0.2
-    stylelint-config-standard: ^24.0.0
-    stylelint-order: ^5.0.0
-    stylelint-scss: ^4.1.0
-    ts-loader: ^9.2.6
-    typescript: ^4.5.4
-    webpack: ^5.65.0
-    webpack-cli: ^4.9.1
-    webpack-dev-server: ^4.7.2
-    webpack-merge: ^5.8.0
-  languageName: unknown
-  linkType: soft
 
 "webpack-cli@npm:^4.9.1":
   version: 4.9.1

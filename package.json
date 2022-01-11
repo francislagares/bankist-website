@@ -1,7 +1,7 @@
 {
-  "name": "webpack-boilerplate",
+  "name": "bankist-website",
   "version": "1.0.0",
-  "description": "Webpack 5 boilerplate using TypeScript, Babel and PostCSS with a hot dev server and an optimized production build.",
+  "description": "Bankist is a minimal website for a bank responsive and soothing design along with functionality to sign into account for further activities",
   "main": "index.js",
   "author": "Francis Lagares",
   "license": "MIT",
@@ -74,5 +74,5 @@
       "path": "cz-conventional-changelog"
     }
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.1"
 }
