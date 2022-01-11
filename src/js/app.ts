@@ -313,3 +313,29 @@ document.body.prepend(message);
 document.querySelector('.btn--close-cookie').addEventListener('click', () => {
   message.parentElement.removeChild(message);
 });
+
+/// //////////////////////////////////////
+// Menu Toggle
+/// //////////////////////////////////////
+const menu = document.querySelector('.js-nav-links');
+const btnMenu = document.querySelector('.js-menu-btn');
+
+btnMenu.addEventListener('click', () => {
+  btnMenu.classList.toggle('nav--icon-active');
+  menu.classList.toggle('nav__links--active');
+  document.body.classList.toggle('overflow-handler');
+
+  nav.style.background = '#f3f3f3';
+
+  if (menu.classList.contains('nav__links--active'))
+    nav.style.background = '#fff';
+});
+
+// Closing menu after link clicked
+document.querySelectorAll('.nav__link').forEach(link =>
+  link.addEventListener('click', () => {
+    menu.classList.remove('nav__links--active');
+    btnMenu.classList.remove('nav--icon-active');
+    document.body.classList.remove('overflow-handler');
+  }),
+);
