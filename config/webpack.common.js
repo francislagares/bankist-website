@@ -59,6 +59,11 @@ module.exports = {
                     type: 'src',
                   },
                   {
+                    tag: 'source',
+                    attribute: 'srcset',
+                    type: 'src',
+                  },
+                  {
                     tag: 'img',
                     attribute: 'data-src',
                     type: 'src',
@@ -85,7 +90,7 @@ module.exports = {
       },
       // Images: Copy image files to build folder
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[name][ext]',
