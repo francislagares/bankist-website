@@ -2,6 +2,12 @@
 /// ////////////////////////////////////
 // Modal window
 /// ////////////////////////////////////
+
+// removing preload class to make transitions work
+window.addEventListener('load', () => {
+  document.body.classList.remove('preload');
+});
+
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -33,10 +39,10 @@ document.addEventListener('keydown', e => {
 // Button Scrolling
 /// ////////////////////////////////////
 const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+const features = document.querySelector('#features');
 
 btnScrollTo.addEventListener('click', () => {
-  section1.scrollIntoView({ behavior: 'smooth' });
+  features.scrollIntoView({ behavior: 'smooth' });
 });
 
 /// ////////////////////////////////////
@@ -90,7 +96,7 @@ tabsContainer.addEventListener('click', (e: Event) => {
 /// ////////////////////////////////////
 // Menu Fade Animation
 /// ////////////////////////////////////
-const nav = document.querySelector('.nav');
+const nav: HTMLDivElement = document.querySelector('.nav');
 
 const handleHover = function (e: Event) {
   const target = e.target as HTMLLinkElement;
@@ -291,3 +297,19 @@ const slider = function () {
   });
 };
 slider();
+
+/// //////////////////////////////////////
+// Cookies Message
+/// //////////////////////////////////////
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+
+message.innerHTML = `We use cookies for improved functionality and analytics. 
+  <button class="btn btn--close-cookie">Got it!</button>`;
+
+document.body.prepend(message);
+
+// Delete elements
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+  message.parentElement.removeChild(message);
+});
