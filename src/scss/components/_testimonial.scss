@@ -1,0 +1,46 @@
+/* TESTIMONIALS */
+.testimonial {
+  width: 75%;
+  position: relative;
+
+  @media (max-width: 40em) {
+    width: 100%;
+  }
+
+  &__header {
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    font-size: 1.7rem;
+    margin-bottom: 3.5rem;
+    color: #666;
+  }
+
+  &__author {
+    font-style: normal;
+
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    column-gap: 2rem;
+  }
+
+  &__photo {
+    grid-row: 1 / span 2;
+    width: 6.5rem;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-size: 1.7rem;
+    font-weight: 500;
+    align-self: end;
+    margin: 0;
+  }
+
+  &__location {
+    font-size: 1.5rem;
+  }
+}

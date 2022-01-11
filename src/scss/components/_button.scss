@@ -1,0 +1,46 @@
+.btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 1.25rem 4.5rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  @media (max-width: 45em) {
+    padding: 1.25rem 3rem;
+  }
+
+  &:hover {
+    background-color: var(--color-primary-darker);
+  }
+
+  &--text {
+    display: inline-block;
+    background: none;
+    font-size: 1.7rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--color-primary);
+    border: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &--close-modal {
+    font-family: inherit;
+    color: inherit;
+    position: absolute;
+    top: -0.5rem;
+    right: 1rem;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+}

@@ -1,0 +1,126 @@
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 500;
+
+  /* nav and sticky class at the same time */
+
+  &.sticky {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  &--icon {
+    &-box {
+      padding: 2rem;
+      cursor: pointer;
+      display: none;
+      justify-self: end;
+
+      @media only screen and (max-width: 60em) {
+        display: block;
+      }
+    }
+
+    &-top,
+    &-bottom,
+    &-center {
+      background: #000;
+      width: 35px;
+      height: 2.5px;
+      border-radius: 10rem;
+      transition: all 0.3s;
+    }
+
+    &-top {
+      margin-bottom: 5px;
+    }
+
+    &-bottom {
+      margin-top: 5px;
+    }
+
+    // Classes to add with javascript to active mobile nav Icon
+    &-active &-center {
+      background-color: transparent;
+    }
+    &-active &-top {
+      transform: rotate(227deg) translate(-1px, -1px);
+      margin: 0;
+    }
+    &-active &-bottom {
+      transform: rotate(-227deg) translate(-2px, 3px);
+      margin: 0;
+    }
+  }
+
+  &__logo {
+    width: 15rem;
+    transition: all 0.3s;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    @media (max-width: 60em) {
+      display: none;
+    }
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      background-color: #fff;
+      top: 6rem;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      overflow-y: scroll;
+      padding: 3rem 0 6rem;
+    }
+  }
+
+  &__item {
+    padding: 2rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  .nav__link--btn {
+    &:link,
+    &:visited {
+      padding: 0.8rem 2.5rem;
+      border-radius: 3rem;
+      background-color: var(--color-primary);
+      color: #222;
+    }
+
+    &:hover,
+    &:active {
+      color: inherit;
+      background-color: var(--color-primary-darker);
+      color: #333;
+    }
+  }
+}
