@@ -125,6 +125,7 @@ nav.addEventListener('mouseout', handleHover.bind('1'));
 // Sticky Navigation - Intersection Observer API
 /// ///////////////////////////////////////////////
 const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = (entries: IntersectionObserverEntry[]) => {
   const [entry] = entries;
@@ -136,6 +137,8 @@ const stickyNav = (entries: IntersectionObserverEntry[]) => {
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null as Element,
   threshold: 0,
+  // Navigation appears 90px before the threshold was reached
+  rootMargin: `-${navHeight}px`,
 });
 
 headerObserver.observe(header);
@@ -279,6 +282,7 @@ const slider = function () {
 
   // eslint-disable-next-line no-unused-vars
   const touchStart = function (i: number) {
+    // eslint-disable-next-line func-names
     return function (event: TouchEvent) {
       isDragging = true;
 
