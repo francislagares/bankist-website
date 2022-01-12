@@ -15,11 +15,6 @@
     "stylelint": "stylelint **/*.{css,scss} --fix",
     "postinstall": "husky install"
   },
-  "keywords": [
-    "webpack",
-    "webpack 5",
-    "webpack boilerplate"
-  ],
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
@@ -73,6 +68,10 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "engines": {
+    "node": ">=16.13.0",
+    "npm": ">=8.3.0"
   },
   "packageManager": "yarn@3.1.1"
 }
