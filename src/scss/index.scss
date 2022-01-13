@@ -1,19 +1,19 @@
-@import "abstracts/variables";
+@use 'abstracts/variables';
 
-@import "base/base";
-@import "base/typography";
-@import "base/utilities";
+@use 'base/base';
+@use 'base/typography';
+@use 'base/utilities';
 
-@import "components/button";
-@import "components/contact";
-@import "components/features";
-@import "components/modal.scss";
-@import "components/operations";
-@import "components/slider";
-@import "components/testimonial";
+@use 'components/button';
+@use 'components/contact';
+@use 'components/features';
+@use 'components/modal.scss';
+@use 'components/operations';
+@use 'components/slider';
+@use 'components/testimonial';
 
-@import "layout/footer";
-@import "layout/header";
-@import "layout/navigation";
+@use 'layout/footer';
+@use 'layout/header';
+@use 'layout/navigation';
 
-@import "pages/home";
+@use 'pages/home';
